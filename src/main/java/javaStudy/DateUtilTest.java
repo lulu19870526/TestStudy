@@ -3,7 +3,7 @@ package javaStudy;
 import java.text.ParseException;
 
 /**
- * Created by zengqx on 2018/11/03.
+ * Created on 2018/11/03.
  */
 public class DateUtilTest {
     public static class SimpleDateFormatThread extends Thread {
