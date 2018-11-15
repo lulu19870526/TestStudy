@@ -1,5 +1,6 @@
 package base.singleton;
 
+//多重检查锁也可以通过反射破坏单例
 public class Singleton3 {
 
     /**
