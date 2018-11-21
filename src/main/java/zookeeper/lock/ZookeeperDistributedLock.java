@@ -7,6 +7,18 @@ import java.util.List;
 import java.util.TreeSet;
 import java.util.concurrent.CountDownLatch;
 
+
+/**
+ * 分布式锁实现：
+ *  1）创建临时顺序节点,比如/root/node，假设返回结果为nodeId。
+ *  2）获取/root下所有孩子节点，用自己创建的nodeId的序号与所有子节点比较，
+ *  看看自己是不是编号最小的。如果是最小的则就相当于获取到了锁，
+ *  如果自己不是最小的，则从所有子节点里面获取比自己次小的一个节点，
+ *  然后设置监听该节点的事件，然后挂起当前线程。
+ * 3） 当最小编号的线程获取锁，处理完业务后删除自己对应的nodeId，
+ * 删除后会激活比自己大一号的节点的线程从阻塞变为运行态，
+ * 被激活的线程应该就是当前node序列号最小的了，然后就会获取到锁
+ */
 public class ZookeeperDistributedLock {
 
     //public final static Joiner j = Joiner.on("|").useForNull("");
