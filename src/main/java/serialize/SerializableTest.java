@@ -39,6 +39,9 @@ class Student implements Serializable
         this.sex = sex;
         this.age = age;
     }
+    public Student(){
+
+    }
 
     public String getName() {
         return name;
