@@ -8,6 +8,8 @@ public class BubbleSort {
       for(int num:arr){
        System.out.print(num+" ");
       }
+
+      //冒泡排序：第一趟，使关键字最大的记录被安置在最后一个记录的位置上，依次类推
       for(int i=0;i<arr.length-1;i++){//外层循环控制排序趟数
         for(int j=0;j<arr.length-1-i;j++){//内层循环控制每一趟排序多少次
          if(arr[j]>arr[j+1]){
