@@ -20,7 +20,7 @@ public class InsertSort {
 
     }
 
-    //直接插入排序
+    //直接插入排序：将一个记录插入到已排好序的有序表中
     private static void insertSort(int[] arr){
 
         //外层循环确定待比较数值
