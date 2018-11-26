@@ -18,6 +18,7 @@ public class SelectSort {
         }
 
     }
+    //简单选择排序：每一趟在n-i个记录中取关键字最小的记录作为有序序列中第i个元素
     public static void sort(int[] R){
         int i,j,k;
         int temp;
