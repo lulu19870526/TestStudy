@@ -1,6 +1,6 @@
 package sort;
 
-//归并排序是一种稳定的排序。
+//归并排序是一种稳定的排序。时间复杂度为o(nlgn)
 public class BindSort {
 
     public static void main(String[] args){
