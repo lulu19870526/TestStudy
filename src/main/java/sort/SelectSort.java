@@ -1,5 +1,8 @@
 package sort;
 
+/**
+ * 时间复杂度o(n2)
+ */
 public class SelectSort {
 
     public static void main(String[] args){
