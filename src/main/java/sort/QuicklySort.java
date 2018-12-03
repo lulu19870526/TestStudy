@@ -1,5 +1,10 @@
 package sort;
 
+/**
+ * 快速排序是所有同量级o(nlogn)中，性能最好的
+ * 但是若初始记录按关键字有序或基本有序，则退化为冒泡排序，时间复杂度为o(n2)
+ * 快速排序需一个栈空间来完成递归，最好情况栈的最大深度为log2n下取整+1；最坏情况栈的深度为n
+ */
 public class QuicklySort {
     //通过一趟排序将待排记录分割成两部分，其中一部分记录的关键字比另一部分记录的关键字小
     private static int getMiddle(Integer[] list, int low, int high) {
