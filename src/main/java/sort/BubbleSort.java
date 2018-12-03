@@ -1,5 +1,8 @@
 package sort;
 
+/**
+ * 冒泡排序时间复杂读为o(n2)
+ */
 public class BubbleSort {
 
     public static void main(String[] args) {
