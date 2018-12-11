@@ -10,6 +10,7 @@ import java.util.concurrent.TimeoutException;
 
 
 /**
+ * 简单队列推模式
  * https://blog.csdn.net/u011126891/article/details/54288263
  * 使用默认Default Exchange的消息生产/消费
  * 我们定义一个生产者程序，一个消费者程序。
