@@ -28,9 +28,9 @@ public class ValidKuohao20 {
                         return false;
                     if(temp == ')' && !stack.peek().equals( "("))
                         return false;
-                    if(temp == ']' && stack.peek().equals("["))
+                    if(temp == ']' && !stack.peek().equals("["))
                         return false;
-                    if(temp == '}' && stack.peek() .equals( "{"))
+                    if(temp == '}' && !stack.peek() .equals( "{"))
                         return false;
 
                     stack.pop();
