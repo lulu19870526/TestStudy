@@ -4,6 +4,11 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * 基于LinkedHashMap实现LRU缓存
+ * @param <K>
+ * @param <V>
+ */
 public class LRUCache<K, V> {
 
     private final int MAX_CACHE_SIZE;
