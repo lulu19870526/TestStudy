@@ -43,12 +43,17 @@ public class ShortUrlGenerator {
         for (int i = 0; i < 4; i++) {
             // 把加密字符按照 8 位一组 16 进制与 0x3FFFFFFF 进行位与运算
             String sTempSubString = hex.substring(i * 8, i * 8 + 8);
+            //8位16进制，每一位16进制数可以代替4位二进制数，所以8位16进制是32位，而0x3fffffff(30位1)
+            //取8个字节, 将他看成16进制串与0x3fffffff(30位1)与操作, 即超过30位的忽略处理;
             // 这里需要使用 long 型来转换，因为 Inteper .parseInt() 只能处理 31 位 , 首位为符号位 , 如果不用 long ，则会越界
             long lHexLong = 0x3FFFFFFF & Long.parseLong(sTempSubString, 16);
             String outChars = "";
+
+            System.out.println("chars.length="+chars.length+";a="+0x0000003D);
             //循环获得每组6位的字符串
             for (int j = 0; j < 6; j++) {
                 // 把得到的值与 0x0000003D 进行位与运算，取得字符数组 chars 索引(具体需要看chars数组的长度   以防下标溢出，注意起点为0)
+                //chars数组的长度26+10+26=62，索引从0到61,而 0x0000003D为61
                 long index = 0x0000003D & lHexLong;
                 // 把取得的字符相加
                 outChars += chars[(int) index];
