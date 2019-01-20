@@ -24,9 +24,9 @@ public class ProducerApp {
             ConnectionFactory factory = new ConnectionFactory();
             factory.setHost("localhost");
             factory.setPort(5672);
-            factory.setUsername("rabbitmq_producer");
-            factory.setPassword("123456");
-            factory.setVirtualHost("test_vhosts");
+            factory.setUsername("admin");
+            factory.setPassword("admin");
+            factory.setVirtualHost("/vhost_lulu");
 
             //创建与RabbitMQ服务器的TCP连接
             connection = factory.newConnection();

@@ -14,9 +14,9 @@ public class ConsumerApp {
             ConnectionFactory factory = new ConnectionFactory();
             factory.setHost("localhost");
             factory.setPort(5672);
-            factory.setUsername("rabbitmq_consumer");
-            factory.setPassword("123456");
-            factory.setVirtualHost("test_vhosts");
+            factory.setUsername("admin");
+            factory.setPassword("admin");
+            factory.setVirtualHost("/vhost_lulu");
             connection = factory.newConnection();
             channel = connection.createChannel();
 
