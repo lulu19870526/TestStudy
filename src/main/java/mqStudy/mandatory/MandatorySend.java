@@ -20,6 +20,9 @@ import java.io.IOException;
  */
 public class MandatorySend {
     private static String EXCHANGE_NAME = "mandatory_exchange";
+    private static String QUEUE_NAME = "mandatory_queue";
+    private static String BINDING_KEY = "mandatory_binding_key";
+    private static String ROOTING_KEY = "mandatory_rooting_key";
 
     public static void main(String[] args){
         try {
@@ -28,6 +31,8 @@ public class MandatorySend {
             Channel channel = connection.createChannel();
 
             channel.exchangeDeclare(EXCHANGE_NAME,"direct",true,false,null);
+            channel.queueDeclare(QUEUE_NAME,true,false,false,null);
+            channel.queueBind(QUEUE_NAME,EXCHANGE_NAME,BINDING_KEY);
 
             for(int i=0;i<10;i++){
                 String meessage = "第"+i+"条消息";
@@ -42,7 +47,7 @@ public class MandatorySend {
                  *    那么broker会调用basic.return方法将消息返还给生产者;当mandatory设置为false时，出现上述情况broker会直接将消息丢弃;
                  *    通俗的讲，mandatory标志告诉broker代理服务器至少将消息route到一个队列中，否则就将消息return给发送者;
                  */
-                channel.basicPublish(EXCHANGE_NAME,"",true, MessageProperties.PERSISTENT_TEXT_PLAIN,meessage.getBytes());
+                channel.basicPublish(EXCHANGE_NAME,ROOTING_KEY,true, MessageProperties.PERSISTENT_TEXT_PLAIN,meessage.getBytes());
             }
             channel.addReturnListener(new ReturnListener() {
                 @Override
