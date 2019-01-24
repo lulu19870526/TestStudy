@@ -5,6 +5,14 @@ import com.rabbitmq.client.*;
 import java.io.IOException;
 
 /**
+ * 我们经常使用消息队列进行系统之间的解耦，日志记录等等。但是有时候我们在使用 RabbitMQ时，
+ * 由于exchange、bindKey、routingKey没有设置正确，导致我们发送给交换器(exchange)的消息，
+ * 由于没有正确的RoutingKey可能会存在一个消息丢失的情况，如果我们希望知道那些消息经过exchange之后，
+ * 没有被正确的存入消息队列，那么应该如何进行处理。
+ *
+ * 方案一：使用 mandatory 参数配合 ReturnListener 来进行解决
+ * 方案二：使用备份交换器 (alternate exchange) 来进行解决
+ *
  * mandatory标志的作用：在消息没有被路由到合适队列情况下会将消息返还给消息发布者，
  * 同时我们测试了哪些情况下消息不会到达合适的队列，测试1演示的是创建了exchange但是没有为他绑定队列导致的消息未到达合适队列，
  * 测试3演示的是创建了exchange同时创建了queue，但是在将两者绑定的时候，使用的bindingKey和消息发布者使用的rountingKey不一致导致的
