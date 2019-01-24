@@ -1,4 +1,4 @@
-package mqStudy.mandatory;
+package mqStudy.unroute.mandatory;
 
 import com.rabbitmq.client.*;
 
