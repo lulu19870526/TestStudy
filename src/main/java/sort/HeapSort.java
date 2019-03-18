@@ -42,7 +42,7 @@ public class HeapSort {
         //2*parent+1是其左孩子节点
         for(int i=parent*2+1;i<=length;i=i*2+1)
         {
-            //如果左孩子大于右孩子，就让i指向右孩子
+            //如果左孩子小于右孩子，就让i指向右孩子
             if(i<length && arr[i]<arr[i+1])
             {
                 i++;
