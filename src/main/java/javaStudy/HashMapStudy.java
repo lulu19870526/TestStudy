@@ -3,9 +3,14 @@ package javaStudy;
 import java.io.IOException;
 
 /**
+ *  判断链表长度已经达到临界值8(大于8） 就需要把链表转换为树结构。
+ *
+ *
  * Created by zengqx on 2018/10/31.
  */
 public class HashMapStudy {
+
+
 
 /*
     final Node<K,V>[] resize() {
