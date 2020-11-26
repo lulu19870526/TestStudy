@@ -44,9 +44,12 @@ public class NC28 {
                         minLen = i - left + 1;
                         result = S.substring(left,i+1);
                     }
-                    map.put(S.charAt(i),map.get(S.charAt(i)) + 1);
-                    if(map.get(S.charAt(i)) > 0)
-                        count --;
+                    if(map.containsKey(S.charAt(left))){
+                        map.put(S.charAt(left),map.get(S.charAt(left)) + 1);
+                        if(map.get(S.charAt(left)) > 0)
+                            count --;
+                    }
+
                     left++;
                 }
             }
