@@ -15,6 +15,13 @@ public class Zhuangxiangchaixiang {
     public static void main(String[] args) {
 
         /**
+         * Java中的引用类型用“==”时比较的是地址，integer1与integer2地址不同就会返回false
+         */
+        Integer integer1=new Integer(100);
+        Integer integer2=new Integer(100);
+        System.out.println( integer1==integer2 ); //false
+
+        /**
          * Integer的valueOf
          * 1、i >= 128 || i < -128 =====> new Integer(i) 
          * 2、i < 128 && i >= -128 =====> SMALL_VALUES[i + 128]
